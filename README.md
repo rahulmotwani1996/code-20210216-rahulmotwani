@@ -3,9 +3,13 @@ Node csv reader
 
 #Steps to run the file
 
-1. Run "npm install"
-2. Run npm start
- or 
-1. sh runnerScript.sh
+RUN sh runnerScript.sh 'url for the csv'
 
+or 
+sh runnerScript.sh
+
+or
+
+npm install 
+npm run start
 

@@ -6,20 +6,27 @@ import parse from 'csv-parse/lib/sync'
 
 var eventEmitter = new EventEmitter()
 const FILE_PATH = path.join(__dirname, 'data.csv')
-
 const DATA_FETCHED : string = 'data-fetched'
-const URL : string = 'https://raw.githubusercontent.com/vamstar/challenge/master/Dataset3.csv'
+let URL: string = ''
+if(process.argv && process.argv[2]) {
+    URL = process.argv[2]
+}else {
+    URL = 'https://raw.githubusercontent.com/vamstar/challenge/master/Dataset3.csv'
+}
 request(URL, (err,response) => {
     if(err) {
         console.log("Failed to read csv data from given url")
+    } else {
+        fs.writeFile(FILE_PATH, response?.body, (err) => {
+            if(!err) {
+                eventEmitter.emit(DATA_FETCHED)
+            }else {
+                console.log("Error occured while saving csv data!")
+            }
+        })
+
     }
-    fs.writeFile(FILE_PATH, response?.body, (err) => {
-        if(!err) {
-            eventEmitter.emit(DATA_FETCHED)
-        }else {
-            console.log("Error occured while saving csv data!")
-        }
-    })
+    
 })
 
 
@@ -37,7 +44,7 @@ eventEmitter.on(DATA_FETCHED, () => {
                     delimiter: ";"
                 })
             
-            if(records) {
+            if(records && records.length) {
                 const obj: string[] = records[0] as string[]
                 console.log("Fields present in csv file\n")
                 obj.forEach((value, index) => {
