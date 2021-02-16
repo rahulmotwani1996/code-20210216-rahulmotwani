@@ -8,8 +8,8 @@ var eventEmitter = new EventEmitter()
 const FILE_PATH = path.join(__dirname, 'data.csv')
 
 const DATA_FETCHED : string = 'data-fetched'
-
-request('https://raw.githubusercontent.com/vamstar/challenge/master/Dataset3.csv', (err,response) => {
+const URL : string = 'https://raw.githubusercontent.com/vamstar/challenge/master/Dataset3.csv'
+request(URL, (err,response) => {
     if(err) {
         console.log("Failed to read csv data from given url")
     }
