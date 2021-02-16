@@ -1,0 +1,30 @@
+{
+  "name": "code-20210216-rahulmotwani",
+  "version": "1.0.0",
+  "description": "Node csv reader",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc && node dist/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rahulmotwani1996/code-20210216-rahulmotwani.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rahulmotwani1996/code-20210216-rahulmotwani/issues"
+  },
+  "homepage": "https://github.com/rahulmotwani1996/code-20210216-rahulmotwani#readme",
+  "devDependencies": {
+    "@types/node": "^14.14.28",
+    "tslint": "^6.1.3",
+    "typescript": "^4.1.5"
+  },
+  "dependencies": {
+    "@types/request": "^2.48.5",
+    "csv-parse": "^4.15.1",
+    "request": "^2.88.2"
+  }
+}
